@@ -1,0 +1,499 @@
+# ITU ....
+
+
+[courses_over_ground]
+# List of AIS Navigation Statusses types as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+3600 = 'Not available, default'
+
+
+[keep_flag]
+# List of ITDMA Number of Slots as defined in:
+#     ITU-R M.1371-5, paragraph 3.3.7.3.2 table 20
+0 = 'Slot does not remain allocated for one additional frame'
+1 = 'Slot remains allocated for one additional frame'
+
+
+[latitudes]
+# List of AIS Navigation Statusses types as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+91 = 'Not available, default'
+north = 'N'
+south = 'S'
+
+
+[longitudes]
+# List of AIS Navigation Statusses types as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+181 = 'Not available, default'
+east = 'E'
+west = 'W'
+
+
+[message_ids]
+#    List of Message IDs as defined in
+#    ITU-R M.1371-5, table 46
+1 = 'Position report Scheduled position report; (Class A shipborne mobile equipment)'
+2 = 'Position report Assigned scheduled position report; (Class A shipborne mobile equipment)'
+3 = 'Position report Special position report, response to interrogation; (Class A shipborne mobile equipment)'
+4 = 'Base station report Position, UTC, date and current slot number of base station'
+5 = 'Static and voyage related data Scheduled static and voyage related vessel data report; (Class A shipborne mobile equipment)'
+6 = 'Binary addressed message Binary data for addressed communication'
+7 = 'Binary acknowledge- ment Acknowledgement of received addressed binary data'
+8 = 'Binary broadcast message Binary data for broadcast communication'
+9 = 'Standard SAR aircraft position report Position report for airborne stations involved in SAR operations, only'
+10 = 'UTC/date inquiry Request UTC and date'
+11 = 'UTC/date response Current UTC and date if available'
+12 = 'Addressed safety related message Safety related data for addressed communication'
+13 = 'Safety related acknowledge- ment Acknowledgement of received addressed safety related message'
+14 = 'Safety related broadcast message Safety related data for broadcast communication'
+15 = 'Interrogation Request for a specific message type (can result in multiple responses from one or several stations)'
+16 = 'Assignment of a specific report behaviour by competent authority using a Base station'
+17 = 'DGNSS broadcast binary message'
+18 = 'Standard Class B equipment position report'
+19 = 'Extended Class B equipment position report'
+20 = 'Data link management message'
+21 = 'Aids-to-Navigation report'
+22 = 'Channel management'
+23 = 'Group assignment command'
+24 = 'Static data report'
+25 = 'Single slot binary message'
+26 = 'Multiple slot binary message with Communications State'
+27 = 'Position report for long-range applications'
+
+
+[MID_Formats]
+# List of MID formats that can be pulled from an MMSI number
+# as defined in
+#     https://gpsd.gitlab.io/gpsd/AIVDM.html, Table 5. MID formats
+MID = 'Ship'
+0 = 'Group of ships'
+00 = 'Coastal stations'
+8 = 'Diver’s radio'
+98 = 'Auxiliary craft associated with a parent ship'
+99 = 'Aids to Navigation'
+111 = 'SAR (Search and Rescue) aircraft'
+970 = 'AIS SART (Search and Rescue Transmitter)'
+972 = 'MOB (Man Overboard) device'
+974 = 'EPIRB (Emergency Position Indicating Radio Beacon) AIS'
+
+
+[MIDs]
+# List of Maritime Identification Digits types as defined in:
+#     https://www.itu.int/en/ITU-R/terrestrial/fmd/Pages/mid.aspx
+201 = 'Albania (Republic of)'
+202 = 'Andorra (Principality of)'
+203 = 'Austria'
+204 = 'Portugal - Azores'
+205 = 'Belgium'
+206 = 'Belarus (Republic of)'
+207 = 'Bulgaria (Republic of)'
+208 = 'Vatican City State'
+209 = 'Cyprus (Republic of)'
+210 = 'Cyprus (Republic of)'
+211 = 'Germany (Federal Republic of)'
+212 = 'Cyprus (Republic of)'
+213 = 'Georgia'
+214 = 'Moldova (Republic of)'
+215 = 'Malta'
+216 = 'Armenia (Republic of)'
+218 = 'Germany (Federal Republic of)'
+219 = 'Denmark'
+220 = 'Denmark'
+224 = 'Spain'
+225 = 'Spain'
+226 = 'France'
+227 = 'France'
+228 = 'France'
+229 = 'Malta'
+230 = 'Finland'
+231 = 'Denmark - Faroe Islands'
+232 = 'United Kingdom of Great Britain and Northern Ireland'
+233 = 'United Kingdom of Great Britain and Northern Ireland'
+234 = 'United Kingdom of Great Britain and Northern Ireland'
+235 = 'United Kingdom of Great Britain and Northern Ireland'
+236 = 'United Kingdom of Great Britain and Northern Ireland - Gibraltar'
+237 = 'Greece'
+238 = 'Croatia (Republic of)'
+239 = 'Greece'
+240 = 'Greece'
+241 = 'Greece'
+242 = 'Morocco (Kingdom of)'
+243 = 'Hungary'
+244 = 'Netherlands (Kingdom of the)'
+245 = 'Netherlands (Kingdom of the)'
+246 = 'Netherlands (Kingdom of the)'
+247 = 'Italy'
+248 = 'Malta'
+249 = 'Malta'
+250 = 'Ireland'
+251 = 'Iceland'
+252 = 'Liechtenstein (Principality of)'
+253 = 'Luxembourg'
+254 = 'Monaco (Principality of)'
+255 = 'Portugal - Madeira'
+256 = 'Malta'
+257 = 'Norway'
+258 = 'Norway'
+259 = 'Norway'
+261 = 'Poland (Republic of)'
+262 = 'Montenegro'
+263 = 'Portugal'
+264 = 'Romania'
+265 = 'Sweden'
+266 = 'Sweden'
+267 = 'Slovak Republic'
+268 = 'San Marino (Republic of)'
+269 = 'Switzerland (Confederation of)'
+270 = 'Czech Republic'
+271 = 'Republic of Türkiye'
+272 = 'Ukraine'
+273 = 'Russian Federation'
+274 = 'North Macedonia (Republic of)'
+275 = 'Latvia (Republic of)'
+276 = 'Estonia (Republic of)'
+277 = 'Lithuania (Republic of)'
+278 = 'Slovenia (Republic of)'
+279 = 'Serbia (Republic of)'
+301 = 'United Kingdom of Great Britain and Northern Ireland - Anguilla'
+303 = 'United States of America - Alaska (State of)'
+304 = 'Antigua and Barbuda'
+305 = 'Antigua and Barbuda'
+#306 = 'Netherlands (Kingdom of the) - Bonaire, Sint Eustatius and Saba'
+#306 = 'Netherlands (Kingdom of the) - Curaçao'
+#306 = 'Netherlands (Kingdom of the) - Sint Maarten (Dutch part)'
+306 = 'Netherlands (Kingdom of the) - Curaçao, Sint Maarten (Dutch part), Bonaire, Sint Eustatius and Saba'
+307 = 'Netherlands (Kingdom of the) - Aruba'
+308 = 'Bahamas (Commonwealth of the)'
+309 = 'Bahamas (Commonwealth of the)'
+310 = 'United Kingdom of Great Britain and Northern Ireland - Bermuda'
+311 = 'Bahamas (Commonwealth of the)'
+312 = 'Belize'
+314 = 'Barbados'
+316 = 'Canada'
+319 = 'United Kingdom of Great Britain and Northern Ireland - Cayman Islands'
+321 = 'Costa Rica'
+323 = 'Cuba'
+325 = 'Dominica (Commonwealth of)'
+327 = 'Dominican Republic'
+329 = 'France - Guadeloupe (French Department of)'
+330 = 'Grenada'
+331 = 'Denmark - Greenland'
+332 = 'Guatemala (Republic of)'
+334 = 'Honduras (Republic of)'
+336 = 'Haiti (Republic of)'
+338 = 'United States of America'
+339 = 'Jamaica'
+341 = 'Saint Kitts and Nevis (Federation of)'
+343 = 'Saint Lucia'
+345 = 'Mexico'
+347 = 'France - Martinique (French Department of)'
+348 = 'United Kingdom of Great Britain and Northern Ireland - Montserrat'
+350 = 'Nicaragua'
+351 = 'Panama (Republic of)'
+352 = 'Panama (Republic of)'
+353 = 'Panama (Republic of)'
+354 = 'Panama (Republic of)'
+355 = 'Panama (Republic of)'
+356 = 'Panama (Republic of)'
+357 = 'Panama (Republic of)'
+358 = 'United States of America - Puerto Rico'
+359 = 'El Salvador (Republic of)'
+361 = 'France - Saint Pierre and Miquelon (Territorial Collectivity of)'
+362 = 'Trinidad and Tobago'
+364 = 'United Kingdom of Great Britain and Northern Ireland - Turks and Caicos Islands'
+366 = 'United States of America'
+367 = 'United States of America'
+368 = 'United States of America'
+369 = 'United States of America'
+370 = 'Panama (Republic of)'
+371 = 'Panama (Republic of)'
+372 = 'Panama (Republic of)'
+373 = 'Panama (Republic of)'
+374 = 'Panama (Republic of)'
+375 = 'Saint Vincent and the Grenadines'
+376 = 'Saint Vincent and the Grenadines'
+377 = 'Saint Vincent and the Grenadines'
+378 = 'United Kingdom of Great Britain and Northern Ireland - British Virgin Islands'
+379 = 'United States of America - United States Virgin Islands'
+401 = 'Afghanistan'
+403 = 'Saudi Arabia (Kingdom of)'
+405 = "Bangladesh (People's Republic of)"
+408 = 'Bahrain (Kingdom of)'
+410 = 'Bhutan (Kingdom of)'
+412 = "China (People's Republic of)"
+413 = "China (People's Republic of)"
+414 = "China (People's Republic of)"
+416 = "China (People's Republic of) - Taiwan (Province of China)"
+417 = 'Sri Lanka (Democratic Socialist Republic of)'
+419 = 'India (Republic of)'
+422 = 'Iran (Islamic Republic of)'
+423 = 'Azerbaijan (Republic of)'
+425 = 'Iraq (Republic of)'
+428 = 'Israel (State of)'
+431 = 'Japan'
+432 = 'Japan'
+434 = 'Turkmenistan'
+436 = 'Kazakhstan (Republic of)'
+437 = 'Uzbekistan (Republic of)'
+438 = 'Jordan (Hashemite Kingdom of)'
+440 = 'Korea (Republic of)'
+441 = 'Korea (Republic of)'
+443 = 'State of Palestine (In accordance with Resolution 99 Rev. Dubai, 2018)'
+445 = "Democratic People's Republic of Korea"
+447 = 'Kuwait (State of)'
+450 = 'Lebanon'
+451 = 'Kyrgyz Republic'
+453 = "China (People's Republic of) - Macao (Special Administrative Region of China)"
+455 = 'Maldives (Republic of)'
+457 = 'Mongolia'
+459 = 'Nepal (Federal Democratic Republic of)'
+461 = 'Oman (Sultanate of)'
+463 = 'Pakistan (Islamic Republic of)'
+466 = 'Qatar (State of)'
+468 = 'Syrian Arab Republic'
+470 = 'United Arab Emirates'
+471 = 'United Arab Emirates'
+472 = 'Tajikistan (Republic of)'
+473 = 'Yemen (Republic of)'
+475 = 'Yemen (Republic of)'
+477 = "China (People's Republic of) - Hong Kong (Special Administrative Region of China)"
+478 = 'Bosnia and Herzegovina'
+501 = 'France - Adelie Land'
+503 = 'Australia'
+506 = 'Myanmar (Union of)'
+508 = 'Brunei Darussalam'
+510 = 'Micronesia (Federated States of)'
+511 = 'Palau (Republic of)'
+512 = 'New Zealand'
+514 = 'Cambodia (Kingdom of)'
+515 = 'Cambodia (Kingdom of)'
+516 = 'Australia - Christmas Island (Indian Ocean)'
+518 = 'New Zealand - Cook Islands'
+520 = 'Fiji (Republic of)'
+523 = 'Australia - Cocos (Keeling) Islands'
+525 = 'Indonesia (Republic of)'
+529 = 'Kiribati (Republic of)'
+531 = "Lao People's Democratic Republic"
+533 = 'Malaysia'
+536 = 'United States of America - Northern Mariana Islands (Commonwealth of the)'
+538 = 'Marshall Islands (Republic of the)'
+540 = 'France - New Caledonia'
+542 = 'New Zealand - Niue'
+544 = 'Nauru (Republic of)'
+546 = 'France - French Polynesia'
+548 = 'Philippines (Republic of the)'
+550 = 'Timor-Leste (Democratic Republic of)'
+553 = 'Papua New Guinea'
+555 = 'United Kingdom of Great Britain and Northern Ireland - Pitcairn Island'
+557 = 'Solomon Islands'
+559 = 'United States of America - American Samoa'
+561 = 'Samoa (Independent State of)'
+563 = 'Singapore (Republic of)'
+564 = 'Singapore (Republic of)'
+565 = 'Singapore (Republic of)'
+566 = 'Singapore (Republic of)'
+567 = 'Thailand'
+570 = 'Tonga (Kingdom of)'
+572 = 'Tuvalu'
+574 = 'Viet Nam (Socialist Republic of)'
+576 = 'Vanuatu (Republic of)'
+577 = 'Vanuatu (Republic of)'
+578 = 'France - Wallis and Futuna Islands'
+601 = 'South Africa (Republic of)'
+603 = 'Angola (Republic of)'
+605 = "Algeria (People's Democratic Republic of)"
+607 = 'France - Saint Paul and Amsterdam Islands'
+608 = 'United Kingdom of Great Britain and Northern Ireland - Ascension Island'
+609 = 'Burundi (Republic of)'
+610 = 'Benin (Republic of)'
+611 = 'Botswana (Republic of)'
+612 = 'Central African Republic'
+613 = 'Cameroon (Republic of)'
+615 = 'Congo (Republic of the)'
+616 = 'Comoros (Union of the)'
+617 = 'Cabo Verde (Republic of)'
+618 = 'France - Crozet Archipelago'
+619 = "Côte d'Ivoire (Republic of)"
+620 = 'Comoros (Union of the)'
+621 = 'Djibouti (Republic of)'
+622 = 'Egypt (Arab Republic of)'
+624 = 'Ethiopia (Federal Democratic Republic of)'
+625 = 'Eritrea'
+626 = 'Gabonese Republic'
+627 = 'Ghana'
+629 = 'Gambia (Republic of the)'
+630 = 'Guinea-Bissau (Republic of)'
+631 = 'Equatorial Guinea (Republic of)'
+632 = 'Guinea (Republic of)'
+633 = 'Burkina Faso'
+634 = 'Kenya (Republic of)'
+635 = 'France - Kerguelen Islands'
+636 = 'Liberia (Republic of)'
+637 = 'Liberia (Republic of)'
+638 = 'South Sudan (Republic of)'
+642 = 'Libya (State of)'
+644 = 'Lesotho (Kingdom of)'
+645 = 'Mauritius (Republic of)'
+647 = 'Madagascar (Republic of)'
+649 = 'Mali (Republic of)'
+650 = 'Mozambique (Republic of)'
+654 = 'Mauritania (Islamic Republic of)'
+655 = 'Malawi'
+656 = 'Niger (Republic of the)'
+657 = 'Nigeria (Federal Republic of)'
+659 = 'Namibia (Republic of)'
+660 = 'France - Reunion (French Department of)'
+661 = 'Rwanda (Republic of)'
+662 = 'Sudan (Republic of the)'
+663 = 'Senegal (Republic of)'
+664 = 'Seychelles (Republic of)'
+665 = 'United Kingdom of Great Britain and Northern Ireland - Saint Helena'
+666 = 'Somalia (Federal Republic of)'
+667 = 'Sierra Leone'
+668 = 'Sao Tome and Principe (Democratic Republic of)'
+669 = 'Eswatini (Kingdom of)'
+670 = 'Chad (Republic of)'
+671 = 'Togolese Republic'
+672 = 'Tunisia'
+674 = 'Tanzania (United Republic of)'
+675 = 'Uganda (Republic of)'
+676 = 'Democratic Republic of the Congo'
+677 = 'Tanzania (United Republic of)'
+678 = 'Zambia (Republic of)'
+679 = 'Zimbabwe (Republic of)'
+701 = 'Argentine Republic'
+710 = 'Brazil (Federative Republic of)'
+720 = 'Bolivia (Plurinational State of)'
+725 = 'Chile'
+730 = 'Colombia (Republic of)'
+735 = 'Ecuador'
+740 = 'United Kingdom of Great Britain and Northern Ireland - Falkland Islands (Malvinas)'
+745 = 'France - Guiana (French Department of)'
+750 = 'Guyana'
+755 = 'Paraguay (Republic of)'
+760 = 'Peru'
+765 = 'Suriname (Republic of)'
+770 = 'Uruguay (Eastern Republic of)'
+775 = 'Venezuela (Bolivarian Republic of)'
+
+
+[navigational_statusses]
+# List of AIS Navigation Statusses types as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+0 = 'Under way using engine'
+1 = 'At anchor'
+2 = 'Not under command'
+3 = 'Restricted manoeuverability'
+4 = 'Constrained by her draught'
+5 = 'Moored'
+6 = 'Aground'
+7 = 'Engaged in fishing'
+8 = 'Under way sailing'
+9 = 'Reserved for future amendment of navigational status for ships carrying DG, HS, or MP, or IMO hazard or pollutant category C, high speed craft (HSC)'
+10 = 'Reserved for future amendment of navigational status for ships carrying dangerous goods (DG), harmful substances (HS) or marine pollutants (MP), or IMO hazard or pollutant category A, wing in ground (WIG)'
+11 = 'Power-driven vessel towing astern (regional use)'
+12 = 'Power-driven vessel pushing ahead or towing alongside (regional use)'
+13 = 'Reserved for future use'
+14 = 'AIS-SART is active, MOB-AIS, EPIRB-AIS'
+15 = 'Undefined (default)'
+
+
+[number_of_slots]
+# List of ITDMA Number of Slots as defined in:
+#     ITU-R M.1371-5, paragraph 3.3.7.3.2 table 20
+0 = 'Allocate 1 consecutive slot'
+1 = 'Allocate 2 consecutive slot'
+2 = 'Allocate 3 consecutive slot'
+3 = 'Allocate 4 consecutive slot'
+4 = 'Allocate 5 consecutive slot'
+5 = 'Allocate 1 consecutive slot, offset = slot increpent + 8192'
+6 = 'Allocate 2 consecutive slot, offset = slot increpent + 8192'
+7 = 'Allocate 3 consecutive slot, offset = slot increpent + 8192'
+
+
+[position_accuracies]
+# List of AIS position accuracies as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+0 = 'Low (>10 m), default'
+1 = 'high (<= 10 m)'
+
+
+[RAIMs]
+# List of AIS RAIMs as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+0 = 'Not in use, default'
+1 = 'In use'
+
+
+[rate_of_turns]
+# List of rates of turns as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+TO_PORT = 'Turning to port'
+TO_STARBOARD = 'Turning to starboard'
+-128 = 'No turn information available, default'
+-127 = 'Turning left at more than 5° per 30 s (No TI available)'
+0 = 'Not turning'
+127 = 'Turning right at more than 5° per 30 s (No TI available)'
+
+
+[repeat_indicators]
+# List of repeat indicators IDs as defined in
+#    ITU-R M.1371-5, paragraph 4.6.1 Repeat indicator
+0 = 'Repeat up to 3 more times, default'
+1 = 'Repeat up to 2 more times'
+2 = 'Repeat up to 1 more times'
+3 = 'Do not repeat any more'
+
+
+[slot_time_outs]
+# List of SOTDMA Slot Time outs as defined in:
+#     ITU-R M.1371-5, paragraph 3.3.7.2.2
+0 = 'This was the last transmission in this slot'
+1 = '1 frames left until slot change'
+2 = '2 frames left until slot change'
+3 = '3 frames left until slot change'
+4 = '4 frames left until slot change'
+5 = '5 frames left until slot change'
+6 = '6 frames left until slot change'
+7 = '7 frames left until slot change'
+
+
+[special_manoeuvre_indicators]
+# List of AIS speed over grounds as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+0 = 'Not available, default'
+1 = 'Not engaged in special manoeuvre'
+2 = 'Engaged in special manoeuvre'
+3 = 'Special manouvre 3 is not in use'
+
+
+[speeds_over_ground]
+# List of AIS speed over grounds as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+1022 = '102.2 Knots or higher'
+1023 = 'Not available'
+
+
+[sync_states]
+# List of SOTDMA & ITDMA Sync states as defined in:
+#     ITU-R M.1371-5, paragraph 3.3.7.2.2 and 3.3.7.3.2
+0 = 'UTC direct'
+1 = 'UTC indirect'
+2 = 'Station is synchronized to a base station (base direct)'
+3 = 'Station is synchronized to another station based on the highest number of received stations or to another mobile station, which is directly synchronized to a base station'
+
+
+[time_stamps]
+# List of AIS time stamps as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+60 = 'Not available, default'
+61 = 'Positioning system is in manual input mode'
+62 = 'Electronic position fixing system operates in estimated (dead reckoning) mode'
+63 = 'Positioning system is inoperative'
+
+
+[true_headings]
+# List of AIS Navigation Statusses types as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+511 = 'Not available, default'
