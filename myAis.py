@@ -1,4 +1,5 @@
 import json
+from datetime import datetime, timezone
 
 import ais
 import nmea
@@ -83,11 +84,12 @@ def decode_ais(binary: str) -> dict:
             )
             match decoded_ais["slot_time_out"]["value"]:
                 case _ if decoded_ais["slot_time_out"]["value"] in (3, 5, 7):
+                    # TODO is slot_time_out correct here ??
                     decoded_ais["slot_time_out"] = int(binary[154:], 2)
                 case _ if decoded_ais["slot_time_out"]["value"] in (2, 4, 6):
-                    decoded_ais["slot_slot_number"] = {"value": int(binary[154:], 2)}
-                    decoded_ais["slot_slot_number"]["valid"] = (
-                        decoded_ais["slot_slot_number"]["value"] <= 2249
+                    decoded_ais["slot_number"] = {"value": int(binary[154:], 2)}
+                    decoded_ais["slot_number"]["valid"] = (
+                        decoded_ais["slot_number"]["value"] <= 2249
                     )
                 case 1:
                     decoded_ais["utc_hour"] = {"value": int(binary[154:159], 2)}
@@ -119,6 +121,8 @@ def decode_ais(binary: str) -> dict:
 
 
 def decode_sentence(sentence: str) -> dict:
+    ts_received = datetime.now(timezone.utc)
+
     data, check_sum = sentence.split("*")
     fields: dict = split_nmea(data, check_sum)
     fields["talker_id"] = find_value_in_dictionary(
@@ -134,6 +138,7 @@ def decode_sentence(sentence: str) -> dict:
     fields["payload"]["binary"] = ais.payload_to_binary(fields["payload"]["value"])
     fields["payload"]["length"] = len(fields["payload"]["binary"])
     fields["check_sum"] = nmea.calculate_check_sum(data, check_sum)
+    fields["ts_received"] = f'{ts_received.isoformat('T')}'
 
     decoded_ais = decode_ais(fields["payload"]["binary"])
     return fields, decoded_ais
