@@ -4,6 +4,7 @@
 [courses_over_ground]
 # List of AIS Navigation Statusses types as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+range = { start = 0, end = 3599 }
 3600 = 'Not available, default'
 
 
@@ -17,6 +18,7 @@
 [latitudes]
 # List of AIS Navigation Statusses types as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+range = { start = -54_000_000, end = 54_000_000 }
 91 = 'Not available, default'
 north = 'N'
 south = 'S'
@@ -25,6 +27,7 @@ south = 'S'
 [longitudes]
 # List of AIS Navigation Statusses types as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+range = { start = -108_000_000, end = 108_000_000 }
 181 = 'Not available, default'
 east = 'E'
 west = 'W'
@@ -496,4 +499,5 @@ TO_STARBOARD = 'Turning to starboard'
 [true_headings]
 # List of AIS Navigation Statusses types as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
+range = { start = 0, end = 359 }
 511 = 'Not available, default'
