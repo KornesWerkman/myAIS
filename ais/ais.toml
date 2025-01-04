@@ -1,11 +1,51 @@
 # ITU ....
 
 
+[ais_version_indicators]
+# List of AIS version indicators as defined in:
+#     ITU-R M.1371-5, table 52, Message ID 5
+0 = "Station compliant with Recommendation ITU-R M.1371-1"
+1 = "Station compliant with Recommendation ITU-R M.1371-3 (or later)"
+2 = "Station compliant with Recommendation ITU-R M.1371-5 (or later)"
+3 = "Station compliant with future editions"
+
+
 [courses_over_ground]
 # List of AIS Navigation Statusses types as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
 range = { start = 0, end = 3599 }
 3600 = 'Not available, default'
+
+
+[dimensions_a]
+# List of AIS dimensions A as defined in:
+#     ITU-R M.1371-5, table 52, Message ID 5
+511 = "511m or greater"
+
+
+[dimensions_b]
+# List of AIS dimensions B as defined in:
+#     ITU-R M.1371-5, table 52, Message ID 5
+511 = "511m or greater"
+
+
+[dimensions_c]
+# List of AIS dimensions C as defined in:
+#     ITU-R M.1371-5, table 52, Message ID 5
+63 = "63m or greater"
+
+
+[dimensions_d]
+# List of AIS dimensions D as defined in:
+#     ITU-R M.1371-5, table 52, Message ID 5
+63 = "63m or greater"
+
+
+[data_terminal_equipment_indicators]
+# List of AIS data terminal equipment indicators as defined in:
+#     ITU-R M.1371-5, table 52, Message ID 5
+0 = "Available"
+1 = "Not available, default"
 
 
 [keep_flag]
@@ -31,6 +71,13 @@ range = { start = -108_000_000, end = 108_000_000 }
 181 = 'Not available, default'
 east = 'E'
 west = 'W'
+
+
+[maximum_present_static_draught]
+# List of AIS maximum present static draughts as defined in:
+#     ITU-R M.1371-5, table 52, Message ID 5
+0 = "Not available, default"
+255 = "Draught 25.5 m or greater"
 
 
 [message_ids]
@@ -496,8 +543,73 @@ TO_STARBOARD = 'Turning to starboard'
 63 = 'Positioning system is inoperative'
 
 
+[transmission_controls_for_long_range_broadcast_message]
+# List of AIS transmission controls for long range broadcast messages as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 4 or 11
+0 = "Class-A AIS station stops transmission of Message 27 within an AIS base station coverage area, default"
+1 = "Request Class-A station to transmit Message 27 within an AIS base station coverage area"
+
+
 [true_headings]
 # List of AIS Navigation Statusses types as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
 range = { start = 0, end = 359 }
 511 = 'Not available, default'
+
+
+[types_of_electronic_position_fixing_device]
+# List of AIS Types of eloctronic position fixing devices as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 4 or 11
+0 = "Undefined (default)"
+1 = "Global positioning system (GPS)"
+2 = "GNSS (GLONASS)"
+3 = "Combined GPS/GLONASS"
+4 = "Loran-C"
+5 = "Chayka"
+6 = "Integrated navigation system"
+7 = "Surveyed"
+8 = "Galileo"
+15 = "Internal GNSS"
+others = "Not used"
+
+
+[utc_days]
+# List of AIS UTC days as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 4 or 11
+range = { start = 1, end = 31 }
+0 = 'Not available, default'
+
+
+[utc_hours]
+# List of AIS UTC hours as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 4 or 11
+range = { start = 0, end = 23 }
+24 = 'Not available, default'
+
+
+[utc_minutes]
+# List of AIS UTC minutes as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 4 or 11
+range = { start = 0, end = 59 }
+60 = 'Not available, default'
+
+
+[utc_months]
+# List of AIS UTC months as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 4 or 11
+range = { start = 1, end = 12 }
+0 = 'Not available, default'
+
+
+[utc_seconds]
+# List of AIS UTC seconds as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 4 or 11
+range = { start = 0, end = 59 }
+60 = 'Not available, default'
+
+
+[utc_years]
+# List of AIS UTC years as defined in:
+#     ITU-R M.1371-5, table 48, Message ID 4 or 11
+range = { start = 1, end = 9999 }
+0 = 'Not available, default'
