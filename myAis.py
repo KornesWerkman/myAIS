@@ -17,7 +17,7 @@ def split_nmea(data: str, check_sum: str) -> dict:
 
     _fields = data.split(",")
     fields["talker_id"] = _fields[0][1:3]
-    fields["identifyer"] = _fields[0][3:]
+    fields["sentence_formatter"] = _fields[0][3:]
     fields["count_of_fragments"] = int(_fields[1])
     fields["fragment_number"] = int(_fields[2])
     fields["sequential_message_id"] = _fields[3]
@@ -128,8 +128,8 @@ def decode_sentence(sentence: str) -> dict:
     fields["talker_id"] = find_value_in_dictionary(
         fields["talker_id"], nmea.NMEA["talker_ids"]
     )
-    fields["identifyer"] = find_value_in_dictionary(
-        fields["identifyer"], nmea.NMEA["identifiers"]
+    fields["sentence_formatter"] = find_value_in_dictionary(
+        fields["sentence_formatter"], nmea.NMEA["sentence_formatters"]
     )
     fields["radio_channel"] = find_value_in_dictionary(
         fields["radio_channel"], nmea.NMEA["radio_channels"]
