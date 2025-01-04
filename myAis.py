@@ -16,12 +16,13 @@ def split_nmea(data: str, check_sum: str) -> dict:
     fields: dict = {}
 
     _fields = data.split(",")
+    fields["delimiter"] = _fields[0][0]
     fields["talker_id"] = _fields[0][1:3]
     fields["sentence_formatter"] = _fields[0][3:]
     fields["count_of_fragments"] = int(_fields[1])
     fields["fragment_number"] = int(_fields[2])
     fields["sequential_message_id"] = _fields[3]
-    fields["radio_channel"] = _fields[4]
+    fields["ais_channel"] = _fields[4]
     fields["payload"] = _fields[5]
     fields["number_of_fill_bits"] = int(_fields[6])
     fields["check_sum"] = "0x" + check_sum
@@ -125,14 +126,17 @@ def decode_sentence(sentence: str) -> dict:
 
     data, check_sum = sentence.split("*")
     fields: dict = split_nmea(data, check_sum)
+    fields["delimiter"] = find_value_in_dictionary(
+        fields["delimiter"], nmea.NMEA["delimiters"]
+    )
     fields["talker_id"] = find_value_in_dictionary(
         fields["talker_id"], nmea.NMEA["talker_ids"]
     )
     fields["sentence_formatter"] = find_value_in_dictionary(
         fields["sentence_formatter"], nmea.NMEA["sentence_formatters"]
     )
-    fields["radio_channel"] = find_value_in_dictionary(
-        fields["radio_channel"], nmea.NMEA["radio_channels"]
+    fields["ais_channel"] = find_value_in_dictionary(
+        fields["ais_channel"], nmea.NMEA["ais_channels"]
     )
     fields["payload"] = {"value": fields["payload"]}
     fields["payload"]["binary"] = ais.payload_to_binary(fields["payload"]["value"])

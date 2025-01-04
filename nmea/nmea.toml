@@ -1,7 +1,18 @@
 # -- Library of NMEA fields
+
+
+[delimiters]
+# List of NMEA 4.0 Talker Identifyer mnemonics as defined in:
+#     NMEA 0183 Version 4, paragraph 6.1, table 3
+mandatory = true
+'$' = "Start of Parametric sentence delimiter"
+'!' = "Start of Encapsulation sentence delimiter"
+
+
 [talker_ids]
 # List of NMEA 4.0 Talker Identifyer mnemonics as defined in:
 #     NMEA 0183 Version 4, paragraph 6.1.4, table 6
+mandatory = true
 AB = "Independent AIS Base Station"
 AD = "Dependent AIS Base Station"
 AG = "HEADING TRACK CONTROLLER (Autopilot): General"
@@ -76,9 +87,11 @@ ZC = "TIMEKEEPERS, TIME/DATE: Chronometer"
 ZQ = "TIMEKEEPERS, TIME/DATE: Quartz"
 ZV = "TIMEKEEPERS, TIME/DATE: Radio Update"
 
+
 [sentence_formatters]
 # List of NMEA 4.0 Talker Identifyer mnemonics as defined in:
 #     NMEA 0183 Version 4, Complete List of Approved Sentence Formatters - Alphabetical Order
+mandatory = true
 AAM = "Waypoint Arrival Alarm"
 ABK = "AIS Addressed and Binary Broadcast Acknowledgement"
 ABM = "AIS Addressed Binary and Safety Related Message"
@@ -229,8 +242,39 @@ ZFO = "UTC & Time from Origin Waypoint"
 ZTG = "UTC & Time to Destination Waypoint"
 
 
-[radio_channels]
+[counts_of_fragments]
+# List of NMEA 4.0 Talker Identifyer mnemonics as defined in:
+#     NMEA 0183 Version 4, paragraph 9.2.1
+mandatory = true
+range = { start = 1, end = 9 }
+
+
+[sequence_numbers]
+# List of NMEA 4.0 Talker Identifyer mnemonics as defined in:
+#     NMEA 0183 Version 4, paragraph 9.2.1
+mandatory = true
+range = { start = 1, end = 9 }
+
+
+[sequential_message_identifiers]
+# List of NMEA 4.0 Talker Identifyer mnemonics as defined in:
+#     NMEA 0183 Version 4, paragraph 9.2.1
+mandatory = false
+range = { start = 0, end = 9 }
+
+
+[ais_channels]
+# List of NMEA 4.0 Talker Identifyer mnemonics as defined in:
+#     NMEA 0183 Version 4, paragraph 9.2.1
+mandatory = false
 A = "161.975Mhz (87B)"
 1 = "161.975Mhz (87B)"
 B = "162.025Mhz (88B)"
 2 = "162.025Mhz (88B)"
+
+
+[fill_bits]
+# List of NMEA 4.0 Talker Identifyer mnemonics as defined in:
+#     NMEA 0183 Version 4, paragraph 9.2.1
+mandatory = true
+range = { start = 0, end = 5 }
