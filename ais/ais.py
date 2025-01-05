@@ -156,13 +156,13 @@ def decode_rate_of_turn(rot: str) -> dict:
 
     _rot: dict = {}
     _rot["value"] = rot
-    if str(rot) in AIS["rate_of_turns"].keys():
-        _rot["description"] = AIS["rate_of_turns"][str(rot)]
+    if str(rot) in AIS["rates_of_turn"].keys():
+        _rot["description"] = AIS["rates_of_turn"][str(rot)]
     elif rot < 0:
-        _rot["description"] = AIS["rate_of_turns"]["TO_PORT"]
+        _rot["description"] = AIS["rates_of_turn"]["TO_PORT"]
         _rot["value"] = -1 * (rot / 4.733) ** 2
     else:
-        _rot["description"] = AIS["rate_of_turns"]["TO_STARBOARD"]
+        _rot["description"] = AIS["rates_of_turn"]["TO_STARBOARD"]
         _rot["value"] = (rot / 4.733) ** 2
     _rot["unit"] = "degrees/minute"
 
