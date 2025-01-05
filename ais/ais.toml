@@ -10,6 +10,108 @@
 3 = "Station compliant with future editions"
 
 
+[altitudes]
+# List of altidudes as defined in:
+#     ITU-R M.1371-5, table 59, Message ID 9
+4094 = "4094m or higher"
+4095 = "Not available"
+
+
+[altitude_sensors]
+# List of altitude indicators as defined in:
+#     ITU-R M.1371-5, table 59, Message ID 9
+0 = "GNSS"
+1 = "Barometric source"
+
+
+[assigned_modes]
+# List of assigned modes as defined in:
+#     ITU-R M.1371-5, table 59, Message ID 9
+0 = "Station operating in autonomous and continuous mode, default"
+1 = "Station operating in assigned mode"
+
+
+[aton_types]
+# List of AIS UTC years as defined in:
+#     ITU-R M.1371-5, table 74, The nature and type of aids to navigation can be indicated with 32 different codes
+0 = "Type of AtoN not specified, default"
+1 = "Reference point"
+2 = "RACON"
+3 = "Fixed structures off-shore, such as oil platforms, wind farms."
+4 = "Emergency Wreck Marking Buoy"
+# Fixed AtoN
+5 = "Light, without sectors"
+6 = "Light, with sectors"
+7 = "Leading Light Front"
+8 = "Leading Light Rear"
+9 = "Beacon, Cardinal N"
+10 = "Beacon, Cardinal E"
+11 = "Beacon, Cardinal S"
+12 = "Beacon, Cardinal W"
+13 = "Beacon, Port hand"
+14 = "Beacon, Starboard hand"
+15 = "Beacon, Preferred Channel port hand"
+16 = "Beacon, Preferred Channel starboard hand"
+17 = "Beacon, Isolated danger"
+18 = "Beacon, Safe water"
+19 = "Beacon, Special mark"
+# Floating AtoN
+20 = "Cardinal Mark N"
+21 = "Cardinal Mark E"
+22 = "Cardinal Mark S"
+23 = "Cardinal Mark W"
+24 = "Port hand Mark"
+25 = "Starboard hand Mark"
+26 = "Preferred Channel Port hand"
+27 = "Preferred Channel Starboard hand"
+28 = "Isolated danger"
+29 = "Safe Water"
+30 = "Special Mark"
+31 = "Light Vessel/LANBY/Rigs"
+
+
+[class_b_band_flags]
+# List of Class B band flags as defined in:
+#     ITU-R M.1371-5, table 70, Message ID 18
+0 = "Capable of operating over the upper 525 kHz band of the marine band"
+1 = "Capable of operating over the whole marine band"
+
+
+[class_b_display_flags]
+# List of Class B display flags as defined in:
+#     ITU-R M.1371-5, table 70, Message ID 18
+0 = "No display available; not capable of displaying Message 12 and 14"
+1 = "Equipped with integrated display displaying Message 12 and 14"
+
+
+[class_b_dsc_flags]
+# List of Class B DSC flags as defined in:
+#     ITU-R M.1371-5, table 70, Message ID 18
+0 = "Not equipped with DSC function"
+1 = "Equipped with DSC function (dedicated or time-shared)"
+
+
+[class_b_message_22_flags]
+# List of Class B message 22 flags as defined in:
+#     ITU-R M.1371-5, table 70, Message ID 18
+0 = "No frequency management via Message 22, operating on AIS 1, AIS 2 only"
+1 = "Frequency management via Message 22"
+
+
+[class_b_unit_flags]
+# List of Class B unit flags as defined in:
+#     ITU-R M.1371-5, table 70, Message ID 18
+0 = "Class B SOTDMA unit"
+1 = "Class B 'CS' unit"
+
+
+[communication_state_selector_flags]
+# List of communication state selector flags as defined in:
+#     ITU-R M.1371-5, table 59, Message ID 9
+0 = "SOTDMA communication state"
+1 = "ITDMA communication state"
+
+
 [courses_over_ground]
 # List of AIS Navigation Statusses types as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
@@ -462,6 +564,13 @@ MID = 'Ship'
 7 = 'Allocate 3 consecutive slot, offset = slot increpent + 8192'
 
 
+[off_position_indications]
+# List of AIS position accuracies as defined in:
+#     ITU-R M.1371-5, table 73, Message ID 21
+0 = 'On position'
+1 = 'Off position'
+
+
 [position_accuracies]
 # List of AIS position accuracies as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 1, 2 or 3
@@ -613,3 +722,10 @@ range = { start = 0, end = 59 }
 #     ITU-R M.1371-5, table 48, Message ID 4 or 11
 range = { start = 1, end = 9999 }
 0 = 'Not available, default'
+
+
+[virtual_aton_flags]
+# List of virtual AtoN flagsas defined in:
+#     ITU-R M.1371-5, table 73, Message ID 21
+0 = 'Real AtoN'
+1 = 'Virtual AtoN'
