@@ -1,6 +1,5 @@
-from datetime import datetime, timezone
-
 import pathlib
+from datetime import datetime, timezone
 
 import tomllib
 
@@ -15,13 +14,8 @@ with open(toml_file, "rb") as configs:
     TRACKS = tomllib.load(configs)
 
 
-class CommonNavigationBlock():
-
-    def __init__(self,
-                 message_id: int,
-                 repeat_indicator: int,
-                 user_id: str) -> None:
-
+class CommonNavigationBlock:
+    def __init__(self, message_id: int, repeat_indicator: int, user_id: str) -> None:
         # -- Info from common navigation block
         self._message_id = message_id
         self._repeat_indicator = repeat_indicator
@@ -29,7 +23,6 @@ class CommonNavigationBlock():
 
         # -- Some meta info
         self.ts_created = datetime.now(timezone.utc)
-
 
     @property
     def message_id(self) -> int:
@@ -55,34 +48,39 @@ class CommonNavigationBlock():
     def user_id(self, value) -> None:
         self._user_id = str(value)
 
+    def __str__(self):
+        return f"MMSI:, {self._user_id}, Message ID: {self._message_id}, Repeat indicator: {self._repeat_indicator}"
 
 
 class Track(CommonNavigationBlock):
-    def __init__(self, message_id, repeat_indicator,user_id,
-               course_over_ground: float = 0.0,
-               itdma_keep_flags: bool = False,
-               itdma_number_of_slots: int = 0,
-               itdma_slot_increment: int = 0,
-               latitude: float = 0.0,
-               longitude: float = 0.0,
-               navigational_status: int = 0,
-               position_accuracy: bool = False,
-               raim: bool = False,
-               rate_of_turn: float = 0.0,
-               sotdma_spare: str = "0",
-               sotdma_slot_number: int = 0,
-               sotdma_slot_offset: int = 0,
-               sotdma_slot_time_out: int = 0,
-               sotdma_utc_hour: int = 0,
-               sotdma_utc_minute: int = 0,
-               spares: list = (),
-               special_manouvre_indicator: int = 0,
-               speed_over_ground: float = 0.0,
-               time_stamp: int = 0,
-               true_heading: int = 0,
-               ) -> None:
-
-        super().__init__(message_id, repeat_indicator,user_id)
+    def __init__(
+        self,
+        message_id,
+        repeat_indicator,
+        user_id,
+        course_over_ground: float = 0.0,
+        itdma_keep_flags: bool = False,
+        itdma_number_of_slots: int = 0,
+        itdma_slot_increment: int = 0,
+        latitude: float = 0.0,
+        longitude: float = 0.0,
+        navigational_status: int = 0,
+        position_accuracy: bool = False,
+        raim: bool = False,
+        rate_of_turn: float = 0.0,
+        sotdma_spare: str = "0",
+        sotdma_slot_number: int = 0,
+        sotdma_slot_offset: int = 0,
+        sotdma_slot_time_out: int = 0,
+        sotdma_utc_hour: int = 0,
+        sotdma_utc_minute: int = 0,
+        spares: list = (),
+        special_manouvre_indicator: int = 0,
+        speed_over_ground: float = 0.0,
+        time_stamp: int = 0,
+        true_heading: int = 0,
+    ) -> None:
+        super().__init__(message_id, repeat_indicator, user_id)
         self.course_over_ground = course_over_ground
         self.itdma_keep_flags = itdma_keep_flags
         self.itdma_number_of_slots = itdma_number_of_slots
@@ -104,7 +102,6 @@ class Track(CommonNavigationBlock):
         self.speed_over_ground = speed_over_ground
         self.time_stamp = time_stamp
         self.true_heading = true_heading
-
 
     @property
     def course_over_ground(self) -> float:
@@ -274,12 +271,10 @@ class Track(CommonNavigationBlock):
     def true_heading(self, value) -> None:
         self._true_heading = int(value)
 
-    def __str__(self) -> str:
-        print(f'MMSI:, {self._user_id}, Message ID: {self._message_id}, Repeat indicator: {self._repeat_indicator}')
 
 # -- --------------------------------------------------------------------------
 tracks = {}
-mmsi =  "265547250"
-tracks[mmsi] = Track(0, 1, mmsi)
+mmsi = "265547250"
+tracks[mmsi] = Track(1, 0, mmsi)
 
 print(tracks[mmsi])

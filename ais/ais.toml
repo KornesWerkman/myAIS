@@ -193,8 +193,499 @@ west = 'W'
 255 = "Draught 25.5 m or greater"
 
 
+[message_1]
+# Layout of Message ID 1 as defined in
+#    ITU-R M.1371-5, table 48
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+navigational_statuss = 4
+rate_of_turn = 8
+speed_over_ground = 10
+position_accuracy = 1
+longitude = 28
+latitude = 27
+course_over_ground = 12
+true_heading = 9
+time_stamp = 6
+special_manoeuvre_indicators = 2
+spare = 3
+RAIM = 1
+sotdma = 19
+
+
+[message_2]
+# Layout of Message ID 2 as defined in
+#    ITU-R M.1371-5, table 48
+# - This copies message 2
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+navigational_statuss = 4
+rate_of_turn = 8
+speed_over_ground = 10
+position_accuracy = 1
+longitude = 28
+latitude = 27
+course_over_ground = 12
+true_heading = 9
+time_stamp = 6
+special_manoeuvre_indicators = 2
+spare = 3
+RAIM = 1
+sotdma = 19
+
+
+[message_3]
+# Layout of Message ID 3 as defined in
+#    ITU-R M.1371-5, table 48
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+navigational_statuss = 4
+rate_of_turn = 8
+speed_over_ground = 10
+position_accuracy = 1
+longitude = 28
+latitude = 27
+course_over_ground = 12
+true_heading = 9
+time_stamp = 6
+special_manoeuvre_indicators = 2
+spare = 3
+RAIM = 1
+itdma = 19
+
+
+[message_4]
+# Layout of Message ID 4 as defined in
+#    ITU-R M.1371-5, table 51
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+utc_year = 14
+utc_month = 4
+utc_day = 5
+utc_hour = 5
+utc_minute = 6
+utc_second = 6
+position_accuracy = 1
+longitude = 28
+latitude = 27
+type_of_electronic_position_fixing_device = 4
+transmission_control_for_long_range_broadcast_message = 1
+spare = 9
+RAIM = 1
+sotdma = 19
+
+
+[message_5]
+# Layout of Message ID 5 as defined in
+#    ITU-R M.1371-5, table 52
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+ais_version_indicator = 2
+imo_number = 30
+call_sign = 42
+name = 120
+types_of_ship_and_cargo_types = 8
+overall_dimensions = 30
+type_of_electronic_position_fixing_device = 4
+# -- the following 20 bits make up the target's ETA
+utc_month = 4
+utc_day = 5
+utc_hour = 5
+utc_minute = 6
+# -- end of ETA
+destination = 120
+data_terminal_equipment_indicators = 1
+spare = 1
+
+
+[message_6]
+# Layout of Message ID 6 as defined in
+#    ITU-R M.1371-5, table 54
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+sequence_number = 2
+destination_id = 30
+retransmit_flag = 1
+spare = 1
+application_identifyer = 16
+binary_data = 'remaining'
+
+
+[message_7]
+# Layout of Message ID 7 as defined in
+#    ITU-R M.1371-5, table 56
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+spare = 2
+destination_id_1 = 30
+sequence_number_1 = 2
+# -- The following three pairs are optional
+destination_id_2 = 30
+sequence_number_2 = 2
+destination_id_3 = 30
+sequence_number_3 = 2
+destination_id_4 = 30
+sequence_number_4 = 2
+
+
+[message_8]
+# Layout of Message ID 8 as defined in
+#    ITU-R M.1371-5, table 57
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+spare = 2
+application_identifyer = 16
+binary_data = 'remaining'
+
+
+[message_9]
+# Layout of Message ID 9 as defined in
+#    ITU-R M.1371-5, table 59
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+altitude = 12
+speed_over_ground = 10
+position_accuracy = 1
+longitude = 28
+latitude = 27
+course_over_ground = 12
+time_stamp = 6
+altitude_sensor = 1
+spare = 7
+data_terminal_equipment_indicators = 1
+spare_2 = 3
+assigned_mode = 1
+RAIM = 1
+# -- the first bit selects between SOTDMA / ITDMA
+communication_state = 20
+
+
+[message_10]
+# Layout of Message ID 10 as defined in
+#    ITU-R M.1371-5, table 60
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+spare = 2
+destination_id = 30
+spare_2 = 2
+
+
+[message_11]
+# Layout of Message ID 11 as defined in
+#    ITU-R M.1371-5, table 51
+# - This copies message 4
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+utc_year = 14
+utc_month = 4
+utc_day = 5
+utc_hour = 5
+utc_minute = 6
+utc_second = 6
+position_accuracy = 1
+longitude = 28
+latitude = 27
+type_of_electronic_position_fixing_device = 4
+transmission_control_for_long_range_broadcast_message = 1
+spare = 9
+RAIM = 1
+sotdma = 19
+
+
+[message_12]
+# Layout of Message ID 12 as defined in
+#    ITU-R M.1371-5, table 61
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+sequence_number = 2
+destination_id = 30
+retransmit_flag = 1
+spare = 1
+binary_data = 'remaining'
+
+
+[message_13]
+# Layout of Message ID 13 as defined in
+#    ITU-R M.1371-5, table 56
+# - This copies message 7
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+spare = 2
+destination_id_1 = 30
+sequence_number_1 = 2
+# -- The following three pairs are optional
+destination_id_2 = 30
+sequence_number_2 = 2
+destination_id_3 = 30
+sequence_number_3 = 2
+destination_id_4 = 30
+sequence_number_4 = 2
+
+
+[message_14]
+# Layout of Message ID 14 as defined in
+#    ITU-R M.1371-5, table 63
+message_id = 6
+repeat_indicator = 2
+user_id = 30
+spare = 2
+binary_data = 'remaining'
+
+
+[message_15]
+# Layout of Message ID 15 as defined in
+#    ITU-R M.1371-5, table 66
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+spare = 2
+destination_id_1 = 30
+message_id_1_1 = 6
+slot_offset_1_1 = 12
+spare_2 = 2
+message_id_1_2 = 6
+slot_offset_1_2 = 12
+spare_3 = 2
+# -- The following three pairs are optional
+message_id_2_1 = 6
+slot_offset_2_1 = 12
+spare_4 = 2
+
+
+[message_16]
+# Layout of Message ID 16 as defined in
+#    ITU-R M.1371-5, table 67
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+spare = 2
+destination_id_A = 30
+offset_A = 12
+increment_A = 10
+# -- The following parts are optional
+destination_id_B = 30
+offset_B = 12
+increment_B = 10
+# -- End of the optional parts
+spare_2 = 4 # or 0, depending on the lenght of the message
+
+
+[message_17]
+# Layout of Message ID 17 as defined in
+#    ITU-R M.1371-5, table 68
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+spare = 2
+longitude = 18
+latitude = 17
+spare_2 = 5
+binary_data = 'remaining'
+
+
+[message_18]
+# Layout of Message ID 18 as defined in
+#    ITU-R M.1371-5, table 70
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+spare = 2
+speed_over_ground = 10
+position_accurucy = 1
+longitude = 28
+latitude = 27
+course_over_ground = 12
+true_heading = 9
+time_stamp = 6
+spare_2 = 2
+class_b_unit_flag = 1
+class_b_dispay_flag = 1
+class_b_dsc_flag = 1
+class_b_band_flag = 1
+class_b_message_22_flag = 1
+assigned_mode = 1
+RAIM = 1
+# -- the first bit selects between SOTDMA / ITDMA
+communication_state = 20
+
+
+[message_19]
+# Layout of Message ID 19 as defined in
+#    ITU-R M.1371-5, table 71
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+spare = 8
+speed_over_ground = 10
+position_accurucy = 1
+longitude = 28
+latitude = 27
+course_over_ground = 12
+true_heading = 9
+time_stamp = 6
+spare_2 = 4
+name = 120
+type_of_ship_and_cargo = 8
+overall_dimensions = 30
+type_of_electronic_position_fixing_device = 4
+RAIM = 1
+data_terminal_equipment_indicators = 1
+assigned_mode = 1
+# -- the first bit selects between SOTDMA / ITDMA
+spare_3 = 4
+
+
+[message_20]
+# Layout of Message ID 20 as defined in
+#    ITU-R M.1371-5, table 72
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+spare = 2
+offset_number_1 = 12
+number_of_slots_1 = 4
+time_out_1 = 3
+increment_1 = 11
+# -- The following parts are optional
+offset_number_2 = 12
+number_of_slots_2 = 4
+time_out_2 = 3
+increment_2 = 11
+offset_number_3 = 12
+number_of_slots_3 = 4
+time_out_3 = 3
+increment_3 = 11
+offset_number_4 = 12
+number_of_slots_4 = 4
+time_out_4 = 3
+increment_4 = 11
+# -- End of optional parts
+spare_2 = 6 # maximum
+
+
+[message_21]
+# Layout of Message ID 21 as defined in
+#    ITU-R M.1371-5, table 73
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+type_of_aids_to_navigation = 5
+name = 120
+position_accuracy = 1
+longitude = 28
+latitude = 27
+overall_dimensions = 30
+type_of_electronic_position_fixing_device = 4
+time_stamp = 6
+off_position_indicator = 1
+aton_status = 8
+RAIM = 1
+virtual_aton_flag = 1
+assigned_mode = 1
+spare = 1
+name_extension = 84                           # 0, 6, 12, 18 ... 84 bits
+spare_2 = 6                                   # to observe bit boundaries
+
+
+[message_22]
+# Layout of Message ID 22 as defined in
+#    ITU-R M.1371-5, table 75
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+spare = 2
+channel_a = 12
+channel_b = 12
+tx_rx_mode = 4
+power = 1
+longitude_1 = 18
+latitude_1 = 17
+longitude_2 = 18
+latitude_2 = 17
+addressed_or_broadcast_indicator = 1
+channel_a_bandwidth = 1
+channel_b_bandwidth = 1
+transitional_zone_size = 3
+spare_2 = 23
+
+
+[message_23]
+# Layout of Message ID 23 as defined in
+#    ITU-R M.1371-5, table 76
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+spare = 2
+longitude_1 = 18
+latitude_1 = 17
+longitude_2 = 18
+latitude_2 = 17
+station_type = 4
+types_of_ship_and_cargo_types = 8
+spare_2 = 22
+tx_rx_mode = 2
+reporting_interval = 4
+quiet_time = 4
+spare_3 = 6
+
+
+[message_24]
+# Layout of Message ID 24 as defined in
+#    ITU-R M.1371-5, table 78 and 79
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+part_number = 2
+
+[message_24a]
+# Layout of Message ID 24a as defined in
+#    ITU-R M.1371-5, table 78
+name = 120
+
+
+[message_24b]
+# Layout of Message ID 24b as defined in
+#    ITU-R M.1371-5, table 79
+types_of_ship_and_cargo_types = 8
+vendor_id = 42
+call_sign = 42
+overall_dimensions = 42
+type_of_electronic_position_fixing_device = 4
+spare = 2
+
+
+[message_27]
+# Layout of Message ID 27 as defined in
+#    ITU-R M.1371-5, table 84
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+position_accuracy = 1
+RAIM = 1
+navigation_status = 4
+longitude = 18
+latitude = 17
+speed_over_ground = 6
+course_over_ground = 9
+position_latency = 1
+spare = 1
+
+
 [message_ids]
-#    List of Message IDs as defined in
+# List of Message IDs as defined in
 #    ITU-R M.1371-5, table 46
 1 = 'Position report Scheduled position report; (Class A shipborne mobile equipment)'
 2 = 'Position report Assigned scheduled position report; (Class A shipborne mobile equipment)'
@@ -716,7 +1207,7 @@ others = "Not used"
 others = "Not used"
 
 
-[types_of_ssip_and_cargo_types]
+[types_of_ship_and_cargo_types]
 # List of Types of hip and cargo types as defined in:
 #     ITU-R M.1371-5, table 48, Message ID 4 or 11
 0 = "Not available or no ship, default"
