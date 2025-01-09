@@ -667,6 +667,38 @@ type_of_electronic_position_fixing_device = 4
 spare = 2
 
 
+[message_25]
+# Layout of Message ID 25 as defined in
+#    ITU-R M.1371-5, table 80
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+destination_indicator = 1
+binary_data_flag = 1
+# -- If 'destination_indicator' = 1 30 bits are used for the Destination ID
+# -- and 2 spare bits for byte alignment
+# -- If 'binary_data_flag' = 1 binary data coded as defined by using the
+# -- 16-bit Application identifier
+binary_data = 'remaining'
+
+
+[message_26]
+# Layout of Message ID 26 as defined in
+#    ITU-R M.1371-5, table 82
+message_id = 6
+repeat_indicator = 2
+source_id = 30
+destination_indicator = 1
+binary_data_flag = 1
+# -- If 'destination_indicator' = 1 30 bits are used for the Destination ID
+# -- and 2 spare bits for byte alignment
+# -- If 'binary_data_flag' = 1 binary data coded as defined by using the
+# -- 16-bit Application identifier
+binary_data = 'remaining'
+# -- the first bit selects between SOTDMA / ITDMA
+communication_state = 20
+
+
 [message_27]
 # Layout of Message ID 27 as defined in
 #    ITU-R M.1371-5, table 84
