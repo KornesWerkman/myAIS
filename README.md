@@ -11,16 +11,17 @@ myAis is written against python 3.13 and only uses features of the standard libr
 |Message ID|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|
 |Repeat Indicator|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|
 |User ID|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|&check;|
-|navigational_status|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|rate_of_turn|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|speed_over_ground|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|position_accuracy|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|longitude|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|latitude|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|course_over_ground|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|true_heading|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|time_stamp|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|special_manoeuvre_indicators|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|spare|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Navigational status|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Rate of turn, ROT|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Speed over ground, SOG|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Position accuracy|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Longitude|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Latitude|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Course over ground, COG|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|True heading|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Time stamp|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Special manoeuvre indicators|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|Spare|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
 |RAIM|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-|sotdma|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|ITDMA|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+|SOTDMA|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
