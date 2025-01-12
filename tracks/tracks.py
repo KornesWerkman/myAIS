@@ -1,4 +1,5 @@
 import pathlib
+import uuid
 from datetime import datetime, timezone
 
 import tomllib
@@ -15,21 +16,21 @@ with open(toml_file, "rb") as configs:
 
 
 class CommonNavigationBlock:
-    def __init__(self, message_id: int, repeat_indicator: int, user_id: str) -> None:
+    def __init__(self, user_id: str) -> None:
         # -- Info from common navigation block
-        self._message_id = message_id
-        self._repeat_indicator = repeat_indicator
         self._user_id = user_id
 
         # -- Some meta info
-        self.ts_created = datetime.now(timezone.utc)
+        self._track_id: str = uuid.uuid4()
+        self._ts_created = datetime.now(timezone.utc)
 
     @property
     def message_id(self) -> int:
         return self._message_id
 
     @message_id.setter
-    def message_id(self, value) -> None:
+    def message_id(self, value: int) -> None:
+        self._ts_updated = datetime.now(timezone.utc)
         self._message_id = int(value)
 
     @property
@@ -37,71 +38,58 @@ class CommonNavigationBlock:
         return self._repeat_indicator
 
     @repeat_indicator.setter
-    def repeat_indicator(self, value) -> None:
+    def repeat_indicator(self, value: int) -> None:
         self._repeat_indicator = int(value)
 
     @property
     def user_id(self) -> str:
         return self._user_id
 
-    @user_id.setter
-    def user_id(self, value) -> None:
-        self._user_id = str(value)
+    @property
+    def ts_created(self) -> str:
+        return str(self._ts_created.isoformat("T"))
 
-    def __str__(self):
-        return f"MMSI:, {self._user_id}, Message ID: {self._message_id}, Repeat indicator: {self._repeat_indicator}"
+    @property
+    def ts_updated(self) -> str:
+        return str(self._ts_updated.isoformat("T"))
+
+    @property
+    def track_id(self) -> str:
+        return str(self._track_id)
+
+    def __str__(self) -> str:
+        return (
+            f"Track ID: {self.track_id}, created: {self.ts_created}, updated: {self.ts_updated}\n"
+            f"MMSI: {self._user_id}, Message ID: {self._message_id}, Repeat indicator: {self._repeat_indicator}\n"
+        )
 
 
 class Track(CommonNavigationBlock):
     def __init__(
         self,
-        message_id,
-        repeat_indicator,
         user_id,
-        course_over_ground: float = 0.0,
-        itdma_keep_flags: bool = False,
-        itdma_number_of_slots: int = 0,
-        itdma_slot_increment: int = 0,
-        latitude: float = 0.0,
-        longitude: float = 0.0,
-        navigational_status: int = 0,
-        position_accuracy: bool = False,
-        raim: bool = False,
-        rate_of_turn: float = 0.0,
-        sotdma_spare: str = "0",
-        sotdma_slot_number: int = 0,
-        sotdma_slot_offset: int = 0,
-        sotdma_slot_time_out: int = 0,
-        sotdma_utc_hour: int = 0,
-        sotdma_utc_minute: int = 0,
-        spares: list = (),
-        special_manouvre_indicator: int = 0,
-        speed_over_ground: float = 0.0,
-        time_stamp: int = 0,
-        true_heading: int = 0,
     ) -> None:
-        super().__init__(message_id, repeat_indicator, user_id)
-        self.course_over_ground = course_over_ground
-        self.itdma_keep_flags = itdma_keep_flags
-        self.itdma_number_of_slots = itdma_number_of_slots
-        self.itdma_slot_increment = itdma_slot_increment
-        self.latitude = latitude
-        self.longitude = longitude
-        self.navigational_status = navigational_status
-        self.position_accuracy = position_accuracy
-        self.raim = raim
-        self.rate_of_turn = rate_of_turn
-        self.sotdma_spare = sotdma_spare
-        self.sotdma_slot_number = sotdma_slot_number
-        self.sotdma_slot_offset = sotdma_slot_offset
-        self.sotdma_slot_time_out = sotdma_slot_time_out
-        self.sotdma_utc_hour = sotdma_utc_hour
-        self.sotdma_utc_minute = sotdma_utc_minute
-        self.spares = spares
-        self.special_manouvre_indicator = special_manouvre_indicator
-        self.speed_over_ground = speed_over_ground
-        self.time_stamp = time_stamp
-        self.true_heading = true_heading
+        super().__init__(user_id)
+
+    @property
+    def course_over_ground(self) -> float:
+        return self._course_over_ground
+
+    @course_over_ground.setter
+    def course_over_ground(self, value) -> None:
+        self._course_over_ground = float(value)
+
+    @property
+    def __str__(self):
+        return f"Track_ID {self._track_id}, created {self.ts_created}, MMSI: {self._user_id}, Message ID: {self._message_id}, Repeat indicator: {self._repeat_indicator}"
+
+
+class Track(CommonNavigationBlock):
+    def __init__(
+        self,
+        user_id,
+    ) -> None:
+        super().__init__(user_id)
 
     @property
     def course_over_ground(self) -> float:
@@ -275,6 +263,8 @@ class Track(CommonNavigationBlock):
 # -- --------------------------------------------------------------------------
 tracks = {}
 mmsi = "265547250"
-tracks[mmsi] = Track(1, 0, mmsi)
+tracks[mmsi] = Track(mmsi)
+tracks[mmsi].message_id = 1
+tracks[mmsi].repeat_indicator = 1
 
 print(tracks[mmsi])
