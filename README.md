@@ -6,8 +6,8 @@ myAis is written against python 3.13 and only uses features of the standard libr
 
 ## Supported messages and data fields
 
-||Field||Message 1, 2 & 3||
-||---||---||
+|Field|Message 1, 2 & 3|
+|---|---|
 |Message ID|:heavy_check_mark:|
 |Repeat Indicator|:heavy_check_mark:|
 |User ID|:heavy_check_mark:|
