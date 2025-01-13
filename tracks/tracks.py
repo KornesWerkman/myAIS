@@ -1,6 +1,7 @@
 import pathlib
 import uuid
 from datetime import datetime, timezone
+from time import sleep
 
 import tomllib
 
@@ -138,10 +139,7 @@ class CommonNavigationBlock:
 
 
 class Target(CommonNavigationBlock):
-    def __init__(
-        self,
-        user_id,
-    ) -> None:
+    def __init__(self, user_id) -> None:
         super().__init__(user_id)
 
     @property
@@ -312,6 +310,15 @@ class Target(CommonNavigationBlock):
     def true_heading(self, value) -> None:
         self._true_heading = int(value)
 
+    def __str__(self) -> str:
+        return (
+            f"MMSI: {self._user_id}, Track ID: {self.track_id}\n"
+            f"Time created: {self.ts_created}, updated: {self.ts_updated}, age: {self.age}\n"
+            f"Message ID: {self.message_id}, Repeat indicator: {self.repeat_indicator}\n"
+            f"Navigation status: {self.navigational_status}, \n"
+            f"Rate of turn (ROT): {self.rate_of_turn}, \n"
+        )
+
 
 # -- --------------------------------------------------------------------------
 # -- messages borrowed from https://www.maritec.co.za/aisvdmvdodecoding
@@ -341,19 +348,21 @@ messages: list = [
     "011011000101010100101110011101010010001001010110011100111011011101001111100000000000000000101100",
 ]
 
-from time import sleep
 
 targets = {}
 for message in messages:
-    message_id: int = int(message[0:6], 2)
-    if message_id <= 27 and message_id >= 1:
-        repeat_indicator: int = int(message[6:8], 2)
-        mmsi: str = f"{int(message[8:38], 2):09d}"
-        if mmsi not in targets.keys():
-            targets[mmsi] = Target(mmsi)
-        targets[mmsi].message_id = message_id
-        targets[mmsi].repeat_indicator = repeat_indicator
-        print(targets[mmsi])
-        sleep(0.5)
+    if len(message) >= 38:
+        message_id: int = int(message[0:6], 2)
+        if message_id <= 27 and message_id >= 1:
+            repeat_indicator: int = int(message[6:8], 2)
+            mmsi: str = f"{int(message[8:38], 2):09d}"
+            if mmsi not in targets.keys():
+                targets[mmsi] = Target(mmsi)
+            targets[mmsi].message_id = message_id
+            targets[mmsi].repeat_indicator = repeat_indicator
+            targets[mmsi].navigational_status = int(message[38:42], 2)
+            targets[mmsi].rate_of_turn = int(message[42:50], 2)
+            print(targets[mmsi])
+            sleep(0.5)
 
 print(CommonNavigationBlock.msg_statistics())
