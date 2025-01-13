@@ -25,6 +25,10 @@ class CommonNavigationBlock:
         self._ts_created = datetime.now(timezone.utc)
 
     @property
+    def age(self) -> int:
+        return abs(self._ts_created - datetime.now(timezone.utc))
+
+    @property
     def message_id(self) -> int:
         return self._message_id
 
@@ -42,8 +46,8 @@ class CommonNavigationBlock:
         self._repeat_indicator = int(value)
 
     @property
-    def user_id(self) -> str:
-        return self._user_id
+    def track_id(self) -> str:
+        return str(self._track_id)
 
     @property
     def ts_created(self) -> str:
@@ -54,34 +58,15 @@ class CommonNavigationBlock:
         return str(self._ts_updated.isoformat("T"))
 
     @property
-    def track_id(self) -> str:
-        return str(self._track_id)
+    def user_id(self) -> str:
+        return self._user_id
 
     def __str__(self) -> str:
         return (
-            f"Track ID: {self.track_id}, created: {self.ts_created}, updated: {self.ts_updated}\n"
-            f"MMSI: {self._user_id}, Message ID: {self._message_id}, Repeat indicator: {self._repeat_indicator}\n"
+            f"MMSI: {self._user_id}, Track ID: {self.track_id}\n"
+            f"Time created: {self.ts_created}, updated: {self.ts_updated}, age: {self.age}\n"
+            f"Message ID: {self._message_id}, Repeat indicator: {self._repeat_indicator}\n"
         )
-
-
-class Track(CommonNavigationBlock):
-    def __init__(
-        self,
-        user_id,
-    ) -> None:
-        super().__init__(user_id)
-
-    @property
-    def course_over_ground(self) -> float:
-        return self._course_over_ground
-
-    @course_over_ground.setter
-    def course_over_ground(self, value) -> None:
-        self._course_over_ground = float(value)
-
-    @property
-    def __str__(self):
-        return f"Track_ID {self._track_id}, created {self.ts_created}, MMSI: {self._user_id}, Message ID: {self._message_id}, Repeat indicator: {self._repeat_indicator}"
 
 
 class Track(CommonNavigationBlock):
