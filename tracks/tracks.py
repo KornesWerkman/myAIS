@@ -120,6 +120,12 @@ class CommonNavigationBlock:
             Message 1 : |#######                                           | 15% (3)
             Message 2 : |                                                  | 0% (0)
             ...
+
+        TODO: Make this more generic for other metrics like distribution of:
+              - target classes
+              - vessel/aton types
+              - flags
+              - etc
         """
 
         width = 50
