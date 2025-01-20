@@ -16,12 +16,14 @@ with open(toml_file, "rb") as configs:
 def calculate_check_sum(data: str, checksum: str) -> dict:
     data = data[1:]
     check_sum: dict = {}
-    check_sum["value"] = "0x" + checksum
+    check_sum["value"] = checksum
     cchecksum = 0
 
     for c in data:
         cchecksum ^= ord(c)
-    check_sum["calculated"] = hex(cchecksum)
+    check_sum["calculated"] = (
+        f"{cchecksum:X}"  # TODO this does not work yet for single digit checksums (<= 'A')
+    )
     check_sum["valid"] = check_sum["value"] == check_sum["calculated"]
 
     return check_sum

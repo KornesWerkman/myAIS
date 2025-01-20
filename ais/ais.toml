@@ -161,7 +161,7 @@ range = { start = 0, end = 3599 }
 0 = 'Not in use'
 
 
-[keep_flag]
+[keep_flags]
 # List of ITDMA Keep flags as defined in:
 #     ITU-R M.1371-5, paragraph 3.3.7.3.2 table 20
 0 = 'Slot does not remain allocated for one additional frame'
@@ -746,6 +746,7 @@ spare = 1
 25 = 'Single slot binary message'
 26 = 'Multiple slot binary message with Communications State'
 27 = 'Position report for long-range applications'
+others = "Only messages 1-27 are defined"
 
 
 [MID_Formats]
