@@ -43,7 +43,7 @@ def decode_ais(binary: str) -> dict:
         int(binary[0:6], 2), ais.AIS["message_ids"]
     )
     match decoded_ais["message_id"]:
-        case 1 | 2 | 3:
+        case _ if decoded_ais["message_id"]["value"] in (1, 2, 3):
             decoded_ais["repeat_indicator"] = find_value_in_dictionary(
                 int(binary[6:8], 2), ais.AIS["repeat_indicators"]
             )
