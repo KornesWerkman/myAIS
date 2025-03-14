@@ -1,3 +1,3 @@
-from .nmea import NMEA, calculate_check_sum
+from .nmea import NMEA, calculate_check_sum, decode_nmea
 
-__all__ = ["NMEA", "calculate_check_sum"]
+__all__ = ["NMEA", "calculate_check_sum", "decode_nmea"]

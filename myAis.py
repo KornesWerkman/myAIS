@@ -18,24 +18,6 @@ def find_value_in_dictionary(value: (int, str), dictionary: dict) -> dict:
     return _dictionary
 
 
-def split_nmea(data: str, check_sum: str) -> dict:
-    fields: dict = {}
-
-    _fields = data.split(",")
-    fields["delimiter"] = _fields[0][0]
-    fields["talker_id"] = _fields[0][1:3]
-    fields["sentence_formatter"] = _fields[0][3:]
-    fields["count_of_fragments"] = int(_fields[1])
-    fields["fragment_number"] = int(_fields[2])
-    fields["sequential_message_id"] = _fields[3]
-    fields["ais_channel"] = _fields[4]
-    fields["payload"] = _fields[5]
-    fields["number_of_fill_bits"] = int(_fields[6])
-    fields["check_sum"] = "0x" + check_sum
-
-    return fields
-
-
 def decode_ais(binary: str) -> dict:
     decoded_ais: dict = {}
 
@@ -134,35 +116,34 @@ def decode_ais(binary: str) -> dict:
     return decoded_ais
 
 
-def decode_sentence(sentence: str) -> dict:
-    ts_received = datetime.now(timezone.utc)
 
-    data, check_sum = sentence.split("*")
-    fields: dict = split_nmea(data, check_sum)
-    fields["delimiter"] = find_value_in_dictionary(
-        fields["delimiter"], nmea.NMEA["delimiters"]
-    )
-    fields["talker_id"] = find_value_in_dictionary(
-        fields["talker_id"], nmea.NMEA["talker_ids"]
-    )
-    fields["sentence_formatter"] = find_value_in_dictionary(
-        fields["sentence_formatter"], nmea.NMEA["sentence_formatters"]
-    )
-    fields["ais_channel"] = find_value_in_dictionary(
-        fields["ais_channel"], nmea.NMEA["ais_channels"]
-    )
-    fields["payload"] = {"value": fields["payload"]}
-    fields["payload"]["binary"] = ais.payload_to_binary(fields["payload"]["value"])
-    fields["payload"]["length"] = len(fields["payload"]["binary"])
-    fields["check_sum"] = nmea.calculate_check_sum(data, check_sum)
-    fields["ts_received"] = f"{ts_received.isoformat('T')}"
+def create_prologue(received: datetime, sentence: str) -> dict:
+    return {
+        "sentence_received": received.isoformat(),
+        "sentence": sentence
+    }
 
-    decoded_ais = decode_ais(fields["payload"]["binary"])
-    return fields, decoded_ais
+def create_epilogue(start_time: datetime) -> dict:
+    ts = datetime.now(timezone.utc)
+    return {
+        "sentence_decoded": ts.isoformat(),
+        "duration": (ts - start_time).total_seconds()
+    }
 
+def unpack_sentence(sentence: str) -> dict:
+    received = datetime.now(timezone.utc)
+    decoded_sentence: dict = {}
+    decoded_sentence["prologue"] = create_prologue(received, sentence)
+    decoded_sentence["nmea"] = nmea.decode_nmea(sentence)
+    decoded_sentence["epilogue"] = create_epilogue(received)
 
-if __name__ == "__main__":
+    return decoded_sentence
+
+def main():
     with open("nmea.txt", "r") as nmea_sentences:
         for sentence in nmea_sentences:
-            print(json.dumps(decode_sentence(sentence.strip()), indent=2))
-            sleep(0.1)
+            decoded_sentence: dict = unpack_sentence(sentence.strip())
+            print(json.dumps(decoded_sentence, indent=2))
+
+if __name__ == "__main__":
+    main()
